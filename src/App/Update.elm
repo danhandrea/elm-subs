@@ -1,5 +1,6 @@
 module App.Update exposing (update)
 
+import App.Card.Model exposing (name)
 import App.Card.Update as C exposing (update)
 import App.Messages exposing (Msg(..))
 import App.Model exposing (Model)
@@ -16,7 +17,7 @@ update msg model =
                 newCards =
                     List.map
                         (\c ->
-                            if c.name == subModel.name then
+                            if name c == name subModel then
                                 subModel
 
                             else
